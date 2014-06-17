@@ -8,21 +8,31 @@
 
 import Foundation
 
-class Promise<I, O> {
+class Promise<T> {
   
-  class func succeed(value: O) -> Promise<I, O> {
-    
+  typealias Resolver = (succeed: (value: T), fail: (error: String))
+  
+  class func succeed(value: T) -> Promise<T> {
+    let resolver: Resolver = { (succeed: (value: T), fail: (error: String)) in
+      succeed(value)
+    }
+    return Promise<T>(closure: resolver)
   }
   
-  class func fail(error: String) -> Promise<I, O> {
-    
+  class func fail(error: String) -> Promise<T> {
   }
   
-  typealias SuccessClosure = (value: O) -> Promise
+  typealias SucceedClosure = (value: T) -> Promise
   typealias FailClosure = (error: String) -> Promise
   
-  func then(succeed: SuccessClosure, fail: FailClosure) -> Promise<I, O> {
+  func then(succeed: SucceedClosure, fail: FailClosure) -> Promise<T> {
     
+  }
+  
+  let closure: Resolver
+  
+  init(closure: Resolver) {
+    self.closure = closure
   }
   
 }
