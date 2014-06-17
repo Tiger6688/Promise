@@ -20,9 +20,9 @@ class PromiseTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testTypesWork() {
+      Promise.succeed(3).then({(x : Int) in XCTAssertTrue(true, ""); return}, fail: {(s:String) in return})
+
     }
     
     func testPerformanceExample() {

@@ -10,6 +10,7 @@
 		1EC398741950C59800A89C19 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC398681950C59800A89C19 /* Promise.framework */; };
 		1EC3987B1950C59800A89C19 /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC3987A1950C59800A89C19 /* PromiseTests.swift */; };
 		1EC398851950C61900A89C19 /* Promises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC398841950C61900A89C19 /* Promises.swift */; };
+		8E3C29801950D79E00154FE3 /* Promises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC398841950C61900A89C19 /* Promises.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC3987B1950C59800A89C19 /* PromiseTests.swift in Sources */,
+				8E3C29801950D79E00154FE3 /* Promises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +403,7 @@
 				1EC398801950C59800A89C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EC398811950C59800A89C19 /* Build configuration list for PBXNativeTarget "PromiseTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +412,7 @@
 				1EC398831950C59800A89C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
