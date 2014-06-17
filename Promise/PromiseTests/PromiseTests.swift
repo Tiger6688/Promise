@@ -25,6 +25,15 @@ class PromiseTests: XCTestCase {
 
   }
 
+  func testThen() {
+    var expectation : XCTestExpectation = self.expectationWithDescription("Then");
+    Promise.succeed(3).then({(x : Int) in expectation.fulfill(); return}, fail: {(s:String) in return})
+    self.waitForExpectationsWithTimeout(1, handler: nil)
+
+  }
+
+
+
   var aVar = 0
   func testCallbackCalled() {
     Promise.succeed(self).then({(x) in x.aVar = 1 ; return}, fail: {(s:String) in return})
