@@ -23,8 +23,14 @@ class PromiseTests: XCTestCase {
     func testTypesWork() {
       Promise.succeed(3).then({(x : Int) in XCTAssertTrue(true, ""); return}, fail: {(s:String) in return})
 
-    }
-    
+  }
+
+  var aVar = 0
+  func testCallbackCalled() {
+    Promise.succeed(self).then({(x) in x.aVar = 1 ; return}, fail: {(s:String) in return})
+    XCTAssertTrue(self.aVar == 1, "")
+  }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
