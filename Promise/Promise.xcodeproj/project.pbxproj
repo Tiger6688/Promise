@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EC3986E1950C59800A89C19 /* Promise.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC3986D1950C59800A89C19 /* Promise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC398741950C59800A89C19 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC398681950C59800A89C19 /* Promise.framework */; };
 		1EC3987B1950C59800A89C19 /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC3987A1950C59800A89C19 /* PromiseTests.swift */; };
+		1EC398851950C61900A89C19 /* Promises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC398841950C61900A89C19 /* Promises.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,10 +25,10 @@
 /* Begin PBXFileReference section */
 		1EC398681950C59800A89C19 /* Promise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Promise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC3986C1950C59800A89C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EC3986D1950C59800A89C19 /* Promise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
 		1EC398731950C59800A89C19 /* PromiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC398791950C59800A89C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EC3987A1950C59800A89C19 /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
+		1EC398841950C61900A89C19 /* Promises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promises.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +71,8 @@
 		1EC3986A1950C59800A89C19 /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				1EC3986D1950C59800A89C19 /* Promise.h */,
 				1EC3986B1950C59800A89C19 /* Supporting Files */,
+				1EC398841950C61900A89C19 /* Promises.swift */,
 			);
 			path = Promise;
 			sourceTree = "<group>";
@@ -109,7 +109,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC3986E1950C59800A89C19 /* Promise.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC398851950C61900A89C19 /* Promises.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +320,7 @@
 		1EC3987F1950C59800A89C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -329,12 +330,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1EC398801950C59800A89C19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
