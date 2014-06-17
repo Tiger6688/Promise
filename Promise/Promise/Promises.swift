@@ -10,23 +10,25 @@ import Foundation
 
 class Promise<T> {
   
-  typealias Resolver = (succeed: (value: T), fail: (error: String))
+  typealias SucceedClosure = (value: T) -> Void
+  typealias FailClosure = (error: String) -> Void
+  typealias Resolver = (succeed: SucceedClosure, fail: FailClosure) -> Void
   
-  class func succeed(value: T) -> Promise<T> {
-    let resolver: Resolver = { (succeed: (value: T), fail: (error: String)) in
-      succeed(value)
+  class func succeed(v: T) -> Promise<T> {
+    let resolver: Resolver = { (succeed: (value: T) -> Void, fail: (error: String) -> Void) -> Void in
+      succeed(value: v)
     }
     return Promise<T>(closure: resolver)
   }
   
-  class func fail(error: String) -> Promise<T> {
+  class func fail(e: String) -> Promise<T> {
+    let resolver: Resolver = { (succeed: (value: T) -> Void, fail: (error: String) -> Void) -> Void in
+      fail(error: e)
+    }
+    return Promise<T>(closure: resolver)
   }
   
-  typealias SucceedClosure = (value: T) -> Promise
-  typealias FailClosure = (error: String) -> Promise
-  
-  func then(succeed: SucceedClosure, fail: FailClosure) -> Promise<T> {
-    
+  func then(succeed: SucceedClosure, fail: FailClosure) -> Void {
   }
   
   let closure: Resolver
